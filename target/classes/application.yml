@@ -1,0 +1,38 @@
+
+# 端口
+server:
+  port: 8082
+
+spring:
+  datasource: # MySQL 数据源
+    url: jdbc:h2:~/test;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver  #配置JDBC Driver
+    platform: h2
+    username: sa
+    password:
+
+  jpa:
+    database: MYSQL
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+
+logging:
+  pattern:
+    console: "%d-%msg%n"
+  level:
+    org.springframework: info
+
