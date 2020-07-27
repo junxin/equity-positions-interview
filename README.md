@@ -14,27 +14,24 @@ Equity positions project for interview.
 ## 2. Design
 ### Datebase
 * Using H2 Database in memory.
-* Two tables: Transaction.
+* One tables: Transaction.
+### Program
+* 新增transaction的服务需要确保在高并发情况下： 同一个TadeId，插入操作的版本号最小， 取消的版本号最大
 
 
 ### Exception
 * RestException include the api exceptions.
 
 ### API
-API document and test： Swagger. http://localhost:8080/swagger-ui.html
+API document and test： Swagger. http://localhost:8082/swagger-ui.html
 
-API response class: ModelJsonRespone.
-* code：0 = error, 1 = success, -11 = wrong param, -12 = access deney
-* errorNo: exceptionNo in WebServiceException.
-* errorDesc: i18n exception message.
-* result: the api data according to the biz.
+
 
 ## 3. Test
 Data initialized in launch, include one trade and five shipments (1 root shipment, 3 split shipments, 1 merged shipment).
 
-JUnit test, include: Please start the application in advanced.
+TestNG, include: Please start the application in advanced.
 * service test cases.
-* WebServiceException test cases.
 * controller test cases. 
 
 ## 4. Deployment
